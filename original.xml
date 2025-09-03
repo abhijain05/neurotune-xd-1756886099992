@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebDynpro xmlns="http://www.sap.com/wd/webdynpro">
+  <View name="EmployeeOnboardingView">
+    <Title>Employee Onboarding Form</Title>
+    <FormContainer id="formContainerPersonal">
+      <Label id="labelName" text="Name" tooltip="Employee's Full Name"/>
+      <InputField id="inputFieldName" value="{/EmployeeOnboarding/Name}"/>
+      <Label id="labelEmail" text="Email" tooltip="Employee's Email Address"/>
+      <InputField id="inputFieldEmail" value="{/EmployeeOnboarding/Email}"/>
+      <Label id="labelPhone" text="Phone" tooltip="Employee's Phone Number"/>
+      <InputField id="inputFieldPhone" value="{/EmployeeOnboarding/Phone}"/>
+      <Label id="labelAddress" text="Address" tooltip="Employee's Address"/>
+      <InputField id="inputFieldAddress" value="{/EmployeeOnboarding/Address}"/>
+    </FormContainer>
+    <FormContainer id="formContainerJobDetails">
+      <Label id="labelDepartment" text="Department" tooltip="Employee's Department"/>
+      <InputField id="inputFieldDepartment" value="{/EmployeeOnboarding/Department}"/>
+      <Label id="labelPosition" text="Position" tooltip="Employee's Position"/>
+      <InputField id="inputFieldPosition" value="{/EmployeeOnboarding/Position}"/>
+      <Label id="labelStartDate" text="Start Date" tooltip="Employee's Start Date"/>
+      <InputField id="inputFieldStartDate" value="{/EmployeeOnboarding/StartDate}"/>
+      <Label id="labelSalary" text="Salary" tooltip="Employee's Salary"/>
+      <InputField id="inputFieldSalary" value="{/EmployeeOnboarding/Salary}"/>
+    </FormContainer>
+    <FormContainer id="formContainerEmergencyContact">
+      <!--  Add Emergency Contact fields similarly to Personal Information -->
+      <Label id="labelEmergencyContactName" text="Emergency Contact Name"/>
+      <InputField id="inputFieldEmergencyContactName" value="{/EmployeeOnboarding/EmergencyContact/Name}"/>
+      <Label id="labelEmergencyContactPhone" text="Emergency Contact Phone"/>
+      <InputField id="inputFieldEmergencyContactPhone" value="{/EmployeeOnboarding/EmergencyContact/Phone}"/>
+
+    </FormContainer>
+    <FormContainer id="formContainerDocuments">
+      <Label id="labelIDUpload" text="ID Upload"/>
+      <!--  WebDynpro doesn't have a direct upload component,  this would require custom logic -->
+      <TextView id="textViewIDUploadStatus" text="{/EmployeeOnboarding/IDUploadStatus}"/>
+      <Label id="labelContractUpload" text="Contract Upload"/>
+      <!--  WebDynpro doesn't have a direct upload component, this would require custom logic -->
+      <TextView id="textViewContractUploadStatus" text="{/EmployeeOnboarding/ContractUploadStatus}"/>
+    </FormContainer>
+    <Button id="buttonSave" text="Save" press="onSavePress"/>
+    <MessageArea id="messageArea"/>
+  </View>
+  <Controller name="EmployeeOnboardingViewController">
+    <method name="onSavePress">
+      <![CDATA[
+        // TODO: Implement save logic here.  This would typically involve data binding to a context node
+        // and persisting the data to a backend system.
+        wdContext.currentContextElement().save();
+        wdComponentAPI.getMessageManager().reportSuccess("Data saved successfully!");
+      ]]>
+    </method>
+  </Controller>
+</WebDynpro>

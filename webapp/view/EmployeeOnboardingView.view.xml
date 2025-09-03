@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:layout="sap.ui.layout"
+  xmlns:form="sap.ui.layout.form"
+  xmlns:core="sap.ui.core"
+  xmlns:richtexteditor="sap.ui.richtexteditor"
+  xmlns:viz="sap.viz.ui5"
+  controllerName="preview.app.controller.EmployeeOnboardingView"
+  displayBlock="true">
+  <Page title="EmployeeOnboardingView" enableScrolling="true">
+    <content>
+      <Title id="title_iddjvy1s" text="Employee Onboarding Form"/>
+      <form:SimpleForm id="formContainerPersonal">
+        <form:content>
+          <!-- Empty SimpleForm content -->
+        </form:content>
+      </form:SimpleForm>
+      <form:SimpleForm id="formContainerJobDetails">
+        <form:content>
+          <!-- Empty SimpleForm content -->
+        </form:content>
+      </form:SimpleForm>
+      <form:SimpleForm id="formContainerEmergencyContact">
+        <form:content>
+          <!-- Empty SimpleForm content -->
+        </form:content>
+      </form:SimpleForm>
+      <form:SimpleForm id="formContainerDocuments">
+        <form:content>
+          <!-- Empty SimpleForm content -->
+        </form:content>
+      </form:SimpleForm>
+      <Button id="buttonSave" text="Save"/>
+      <MessagePopover id="messageArea"/>
+    </content>
+  </Page>
+</mvc:View>
