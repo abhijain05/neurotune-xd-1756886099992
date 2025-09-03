@@ -1,37 +1,88 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <mvc:View xmlns:mvc="sap.ui.core.mvc"
-  xmlns="sap.m"
-  xmlns:layout="sap.ui.layout"
-  xmlns:form="sap.ui.layout.form"
-  xmlns:core="sap.ui.core"
-  xmlns:richtexteditor="sap.ui.richtexteditor"
-  xmlns:viz="sap.viz.ui5"
-  controllerName="preview.app.controller.EmployeeOnboardingView"
-  displayBlock="true">
-  <Page title="EmployeeOnboardingView" enableScrolling="true">
+          xmlns="sap.m"
+          xmlns:layout="sap.ui.layout"
+          xmlns:form="sap.ui.layout.form"
+          xmlns:core="sap.ui.core"
+          xmlns:f="sap.f"
+          controllerName="converted.employeeonboardingview.controller.EmployeeOnboardingView"
+          displayBlock="true"
+          xmlns:commons="sap.ui.commons">
+  <Page title="Employee Onboarding Form" enableScrolling="true">
     <content>
-      <Title id="title_iddjvy1s" text="Employee Onboarding Form"/>
-      <form:SimpleForm id="formContainerPersonal">
+      <Title id="titleEmployeeOnboarding" text="Employee Onboarding Form"/>
+
+      <!-- Personal Information Form -->
+      <form:SimpleForm id="formContainerPersonal"
+                       title="Personal Information"
+                       layout="ResponsiveGridLayout"
+                       editable="true">
         <form:content>
-          <!-- Empty SimpleForm content -->
+          <Label id="labelName" text="Name" tooltip="Employee's Full Name"/>
+          <Input id="inputFieldName" value="{employee>/EmployeeOnboarding/Name}"/>
+
+          <Label id="labelEmail" text="Email" tooltip="Employee's Email Address"/>
+          <Input id="inputFieldEmail" value="{employee>/EmployeeOnboarding/Email}"/>
+
+          <Label id="labelPhone" text="Phone" tooltip="Employee's Phone Number"/>
+          <Input id="inputFieldPhone" value="{employee>/EmployeeOnboarding/Phone}"/>
+
+          <Label id="labelAddress" text="Address" tooltip="Employee's Address"/>
+          <Input id="inputFieldAddress" value="{employee>/EmployeeOnboarding/Address}"/>
         </form:content>
       </form:SimpleForm>
-      <form:SimpleForm id="formContainerJobDetails">
+
+      <!-- Job Details Form -->
+      <form:SimpleForm id="formContainerJobDetails"
+                       title="Job Details"
+                       layout="ResponsiveGridLayout"
+                       editable="true">
         <form:content>
-          <!-- Empty SimpleForm content -->
+          <Label id="labelDepartment" text="Department" tooltip="Employee's Department"/>
+          <Input id="inputFieldDepartment" value="{employee>/EmployeeOnboarding/Department}"/>
+
+          <Label id="labelPosition" text="Position" tooltip="Employee's Position"/>
+          <Input id="inputFieldPosition" value="{employee>/EmployeeOnboarding/Position}"/>
+
+          <Label id="labelStartDate" text="Start Date" tooltip="Employee's Start Date"/>
+          <Input id="inputFieldStartDate" value="{employee>/EmployeeOnboarding/StartDate}"/>
+
+          <Label id="labelSalary" text="Salary" tooltip="Employee's Salary"/>
+          <Input id="inputFieldSalary" value="{employee>/EmployeeOnboarding/Salary}"/>
         </form:content>
       </form:SimpleForm>
-      <form:SimpleForm id="formContainerEmergencyContact">
+
+      <!-- Emergency Contact Form -->
+      <form:SimpleForm id="formContainerEmergencyContact"
+                       title="Emergency Contact"
+                       layout="ResponsiveGridLayout"
+                       editable="true">
         <form:content>
-          <!-- Empty SimpleForm content -->
+          <Label id="labelEmergencyContactName" text="Emergency Contact Name"/>
+          <Input id="inputFieldEmergencyContactName" value="{employee>/EmployeeOnboarding/EmergencyContact/Name}"/>
+
+          <Label id="labelEmergencyContactPhone" text="Emergency Contact Phone"/>
+          <Input id="inputFieldEmergencyContactPhone" value="{employee>/EmployeeOnboarding/EmergencyContact/Phone}"/>
         </form:content>
       </form:SimpleForm>
-      <form:SimpleForm id="formContainerDocuments">
+
+      <!-- Documents Form -->
+      <form:SimpleForm id="formContainerDocuments"
+                       title="Documents"
+                       layout="ResponsiveGridLayout"
+                       editable="true">
         <form:content>
-          <!-- Empty SimpleForm content -->
+          <Label id="labelIDUpload" text="ID Upload"/>
+          <Text id="textViewIDUploadStatus" text="{employee>/EmployeeOnboarding/IDUploadStatus}"/>
+
+          <Label id="labelContractUpload" text="Contract Upload"/>
+          <Text id="textViewContractUploadStatus" text="{employee>/EmployeeOnboarding/ContractUploadStatus}"/>
         </form:content>
       </form:SimpleForm>
-      <Button id="buttonSave" text="Save"/>
+
+      <!-- Save Button -->
+      <Button id="buttonSave" text="Save" press="onSaveButtonPress" tooltip="Save employee data"/>
+
+      <!-- Message Popover -->
       <MessagePopover id="messageArea"/>
     </content>
   </Page>
